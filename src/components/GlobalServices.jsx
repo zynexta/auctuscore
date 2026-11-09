@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Globe2,
   CheckCircle,
@@ -7,18 +8,6 @@ import {
 import { globalCoverage } from "../data/companyData";
 
 export default function GlobalServices() {
-  const scrollToContact = () => {
-    const el = document.querySelector("#contact");
-    if (el) {
-      const navOffset = 80;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <section id="global-services" className="py-20 lg:py-28 bg-[#F7FAFD] relative overflow-hidden">
@@ -58,15 +47,24 @@ export default function GlobalServices() {
               ].map((market, mIdx) => (
                 <div
                   key={mIdx}
-                  className="flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-white border border-[#E3ECF5] shadow-xs hover:border-[#1464AD] hover:shadow-card-subtle transition-all duration-200 shrink-0 cursor-pointer group"
+                  className="flex items-center gap-2.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-white border border-[#E3ECF5] shadow-xs hover:border-[#1464AD] hover:shadow-card-subtle transition-all duration-200 shrink-0 cursor-pointer group"
                 >
-                  <span
-                    className="text-xl shrink-0 transition-transform duration-200 group-hover:scale-110"
-                    role="img"
-                    aria-label={market.name}
-                  >
-                    {market.flag}
-                  </span>
+                  <div className="w-8 h-5.5 rounded overflow-hidden shrink-0 shadow-xs border border-[#DCEEFF] group-hover:scale-110 transition-transform duration-200 bg-slate-50 flex items-center justify-center">
+                    {market.flagUrl ? (
+                      <img
+                        src={market.flagUrl}
+                        alt={`${market.name} Flag`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        width="32"
+                        height="22"
+                      />
+                    ) : (
+                      <span className="text-base" role="img" aria-label={market.name}>
+                        {market.flag}
+                      </span>
+                    )}
+                  </div>
                   <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-[#F0F7FF] text-[#1464AD] border border-[#DCEEFF] shrink-0">
                     {market.code}
                   </span>
@@ -103,14 +101,13 @@ export default function GlobalServices() {
               Partner directly with senior Indian and GCC chartered accountants and financial consultants with Big Four background. We manage your overseas bookkeeping, monthly MIS, VAT compliance, and financial reporting with meticulous precision.
             </p>
 
-            <button
-              type="button"
-              onClick={scrollToContact}
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-white hover:bg-[#DCEEFF] text-[#062B60] text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <span>Request Global Consultation</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
         </div>
 

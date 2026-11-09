@@ -19,12 +19,10 @@ export const companyInfo = {
 };
 
 export const navLinks = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Leadership", href: "#leadership" },
-  { name: "Global Services", href: "#global-services" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export const whyWeArePillars = [
@@ -132,6 +130,7 @@ export const leadershipTeam = [
     name: "CA Shahid Ali",
     designation: "FCA",
     role: "Partner & Audit Specialist",
+    image: "/images/team-shahid-ali.webp",
     pastExperience: "Former Audit Manager at EY, Deloitte, and Grant Thornton.",
     experienceYears: "12+ Years Experience",
     experienceDetail:
@@ -148,6 +147,7 @@ export const leadershipTeam = [
     name: "Ummer Sadique",
     designation: "M COM",
     role: "Partner & Financial Consultant",
+    image: "/images/team-ummer-sadique.webp",
     pastExperience: "Former Senior Consultant at Baker Tilly, with GCC experience.",
     experienceYears: "15+ Years Experience",
     experienceDetail:
@@ -200,12 +200,16 @@ export const globalCoverage = {
   subheading:
     "Delivering seamless international financial solutions across borders with deep regulatory understanding.",
   markets: [
-    { name: "India", code: "IN", flag: "🇮🇳" },
-    { name: "UAE", code: "AE", flag: "🇦🇪" },
-    { name: "Qatar", code: "QA", flag: "🇶🇦" },
-    { name: "Bahrain", code: "BH", flag: "🇧🇭" },
-    { name: "Saudi Arabia", code: "SA", flag: "🇸🇦" },
-    { name: "Other International Markets", code: "GLOBAL", flag: "🌐" },
+    { name: "India", code: "IN", flag: "🇮🇳", flagUrl: "/images/flags/in.svg" },
+    { name: "UAE", code: "AE", flag: "🇦🇪", flagUrl: "/images/flags/ae.svg" },
+    { name: "Saudi Arabia", code: "SA", flag: "🇸🇦", flagUrl: "/images/flags/sa.svg" },
+    { name: "Qatar", code: "QA", flag: "🇶🇦", flagUrl: "/images/flags/qa.svg" },
+    { name: "Bahrain", code: "BH", flag: "🇧🇭", flagUrl: "/images/flags/bh.svg" },
+    { name: "Oman", code: "OM", flag: "🇴🇲", flagUrl: "/images/flags/om.svg" },
+    { name: "Kuwait", code: "KW", flag: "🇰🇼", flagUrl: "/images/flags/kw.svg" },
+    { name: "United States", code: "USA", flag: "🇺🇸", flagUrl: "/images/flags/us.svg" },
+    { name: "United Kingdom", code: "UK", flag: "🇬🇧", flagUrl: "/images/flags/uk.svg" },
+    { name: "Global Markets", code: "GLOBAL", flag: "🌐", flagUrl: "/images/flags/global.svg" },
   ],
   services: [
     { id: 1, title: "Accounting & Bookkeeping" },

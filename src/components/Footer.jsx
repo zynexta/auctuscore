@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, ArrowUp, ArrowUpRight } from "lucide-react";
 import { companyInfo, navLinks, coreServices } from "../data/companyData";
 
@@ -8,21 +9,6 @@ export default function Footer() {
       top: 0,
       behavior: "smooth",
     });
-  };
-
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      const navOffset = 76;
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
   };
 
   const currentYear = new Date().getFullYear();
@@ -36,24 +22,20 @@ export default function Footer() {
           
           {/* Box 1: Brand & Tagline Box */}
           <div className="lg:col-span-4 p-5 sm:p-6 rounded-2xl bg-white/[0.04] md:bg-transparent border border-white/10 md:border-transparent space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white text-[#062B60] flex items-center justify-center font-bold shrink-0 shadow-sm">
-                <svg
-                  viewBox="0 0 40 40"
-                  className="w-6 h-6 fill-none stroke-current"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M12 28L20 10L28 28" stroke="#062B60" />
-                  <path d="M15 22H25" stroke="#062B60" />
-                  <circle cx="20" cy="18" r="2.5" fill="#1464AD" stroke="none" />
-                </svg>
+            <Link to="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
+                <img
+                  src="/images/logo.png"
+                  alt="Auctus Core Emblem"
+                  className="w-full h-full object-contain"
+                  width="40"
+                  height="40"
+                />
               </div>
               <span className="text-2xl font-extrabold tracking-tight text-white font-heading">
                 AUCTUS<span className="text-[#539FE0] ml-1">CORE</span>
               </span>
-            </div>
+            </Link>
 
             <p className="text-xs sm:text-sm text-[#DCEEFF]/85 leading-relaxed">
               Empowering businesses with reliable accounting, auditing, taxation, compliance, and strategic financial advisory solutions across India, the GCC, and global markets.
@@ -73,13 +55,12 @@ export default function Footer() {
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-2 text-xs sm:text-sm text-[#DCEEFF]">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
+                  <Link
+                    to={link.path}
                     className="hover:text-white transition-colors block py-0.5 truncate"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -93,13 +74,12 @@ export default function Footer() {
             <ul className="space-y-2 text-xs sm:text-sm text-[#DCEEFF]">
               {coreServices.slice(0, 5).map((service) => (
                 <li key={service.id}>
-                  <a
-                    href="#services"
-                    onClick={(e) => handleNavClick(e, "#services")}
+                  <Link
+                    to="/services"
                     className="hover:text-white transition-colors block py-0.5 truncate"
                   >
                     {service.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route, Navigate, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import VisionMission from "./components/VisionMission";
-import Services from "./components/Services";
-import Leadership from "./components/Leadership";
-import Technology from "./components/Technology";
-import GlobalServices from "./components/GlobalServices";
-import Industries from "./components/Industries";
-import WhyChooseUs from "./components/WhyChooseUs";
-import SoftwareExpertise from "./components/SoftwareExpertise";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
+import AboutPage from "./pages/AboutPage";
+import ServicesPage from "./pages/ServicesPage";
+import ContactPage from "./pages/ContactPage";
 import { MessageCircle, Phone, ArrowUpRight } from "lucide-react";
 import { companyInfo } from "./data/companyData";
 
@@ -30,62 +25,26 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToContact = (e) => {
-    e.preventDefault();
-    const el = document.querySelector("#contact");
-    if (el) {
-      const navOffset = 76;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white text-[#17253A] flex flex-col selection:bg-[#DCEEFF] selection:text-[#062B60] w-full overflow-x-clip">
+      {/* Route change scroll reset */}
+      <ScrollToTop />
+
       {/* Sticky Header Navbar */}
       <Navbar />
 
-      {/* Main Continuous Single-Page Flow (with mobile bottom padding for controller bar) */}
+      {/* Dynamic Multi-Page Router View */}
       <main className="flex-grow pb-16 md:pb-0">
-        {/* Section 2: Hero */}
-        <Hero />
-
-        {/* Section 3: About Auctus Core */}
-        <About />
-
-        {/* Section 4: Vision & Mission */}
-        <VisionMission />
-
-        {/* Section 5: Practice Areas / Services */}
-        <Services />
-
-        {/* Section 6: Leadership */}
-        <Leadership />
-
-        {/* Section 7: Technology Integration */}
-        <Technology />
-
-        {/* Section 8: Overseas Accounting Services */}
-        <GlobalServices />
-
-        {/* Section 9: Industries We Serve */}
-        <Industries />
-
-        {/* Section 10: Why Partner with Auctus Core */}
-        <WhyChooseUs />
-
-        {/* Section 11: Software Expertise */}
-        <SoftwareExpertise />
-
-        {/* Section 12: Contact Us */}
-        <Contact />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
-      {/* Section 13: Footer */}
+      {/* Global Footer */}
       <Footer />
 
       {/* MOBILE CONTROLLER BAR (Docked Bottom Action Dock - for Mobile screens < 768px) */}
@@ -116,15 +75,14 @@ export default function App() {
         </a>
 
         {/* Consultation Action */}
-        <a
-          href="#contact"
-          onClick={scrollToContact}
+        <Link
+          to="/contact"
           className="flex-1 flex items-center justify-center gap-1 py-2.5 px-2 rounded-lg bg-[#062B60] text-white text-xs font-bold uppercase tracking-wider active:bg-[#1464AD] transition-colors shadow-sm"
           aria-label="Book Consultation"
         >
           <span>Consult</span>
           <ArrowUpRight className="w-3.5 h-3.5" />
-        </a>
+        </Link>
       </nav>
 
       {/* DESKTOP FLOATING ACTION BUTTONS (For Tablet/Desktop screens >= 768px when scrolled) */}

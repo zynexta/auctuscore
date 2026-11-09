@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <radialGradient id="globe-grad" cx="40%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1E75C4"/>
+      <stop offset="60%" stop-color="#062B60"/>
+      <stop offset="100%" stop-color="#021533"/>
+    </radialGradient>
+  </defs>
+  <circle cx="300" cy="300" r="280" fill="url(#globe-grad)"/>
+  <circle cx="300" cy="300" r="280" fill="none" stroke="#539FE0" stroke-width="12" opacity="0.6"/>
+  <!-- Latitude lines -->
+  <line x1="25" y1="300" x2="575" y2="300" stroke="#BFE0FC" stroke-width="8" opacity="0.75"/>
+  <ellipse cx="300" cy="300" rx="275" ry="140" fill="none" stroke="#BFE0FC" stroke-width="8" opacity="0.75"/>
+  <ellipse cx="300" cy="300" rx="230" ry="240" fill="none" stroke="#BFE0FC" stroke-width="8" opacity="0.75"/>
+  <!-- Longitude lines -->
+  <line x1="300" y1="20" x2="300" y2="580" stroke="#BFE0FC" stroke-width="8" opacity="0.75"/>
+  <ellipse cx="300" cy="300" rx="140" ry="275" fill="none" stroke="#BFE0FC" stroke-width="8" opacity="0.75"/>
+</svg>

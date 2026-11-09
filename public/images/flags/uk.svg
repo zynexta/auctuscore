@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600">
+  <clipPath id="uk-clip">
+    <rect width="1000" height="600"/>
+  </clipPath>
+  <g clip-path="url(#uk-clip)">
+    <rect width="1000" height="600" fill="#012169"/>
+    <!-- Diagonal white -->
+    <line x1="0" y1="0" x2="1000" y2="600" stroke="#FFFFFF" stroke-width="120"/>
+    <line x1="1000" y1="0" x2="0" y2="600" stroke="#FFFFFF" stroke-width="120"/>
+    <!-- Diagonal red -->
+    <line x1="0" y1="0" x2="1000" y2="600" stroke="#C8102E" stroke-width="40"/>
+    <line x1="1000" y1="0" x2="0" y2="600" stroke="#C8102E" stroke-width="40"/>
+    <!-- Cross white -->
+    <rect x="400" width="200" height="600" fill="#FFFFFF"/>
+    <rect y="200" width="1000" height="200" fill="#FFFFFF"/>
+    <!-- Cross red -->
+    <rect x="440" width="120" height="600" fill="#C8102E"/>
+    <rect y="240" width="1000" height="120" fill="#C8102E"/>
+  </g>
+</svg>

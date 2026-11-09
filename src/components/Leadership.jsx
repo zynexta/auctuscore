@@ -35,34 +35,62 @@ export default function Leadership() {
             return (
               <div
                 key={index}
-                className="p-5 sm:p-8 lg:p-9 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover:border-[#1464AD] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between"
+                className="p-6 sm:p-8 lg:p-9 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover:border-[#1464AD] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  {/* Clean Header Lockup: Avatar + Name & Designation + Role + Experience */}
-                  <div className="flex items-start gap-3.5 sm:gap-5 pb-5 sm:pb-6 border-b border-[#E3ECF5]">
-                    {/* Typographic Monogram Avatar */}
-                    <div className="w-13 h-13 sm:w-16 sm:h-16 w-[52px] h-[52px] sm:w-[64px] sm:h-[64px] rounded-2xl bg-[#062B60] text-white flex items-center justify-center font-extrabold text-base sm:text-xl tracking-wider shadow-sm shrink-0">
-                      {initials}
-                    </div>
+                  {/* Executive Header Lockup: Prominent Large Portrait + Information */}
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6 pb-6 border-b border-[#E3ECF5]">
+                    {/* Large Executive Portrait Photo (Black & White) or Monogram */}
+                    {leader.image ? (
+                      <div className="w-32 h-40 sm:w-36 sm:h-44 lg:w-40 lg:h-48 rounded-2xl overflow-hidden border-2 border-[#DCEEFF] shadow-md shrink-0 bg-slate-100 group-hover:border-[#1464AD] transition-colors">
+                        <img
+                          src={leader.image}
+                          alt={leader.name}
+                          className="w-full h-full object-cover object-center filter grayscale contrast-105"
+                          loading="lazy"
+                          width="320"
+                          height="400"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-32 h-40 sm:w-36 sm:h-44 lg:w-40 lg:h-48 rounded-2xl bg-gradient-to-br from-[#062B60] to-[#0D3B7C] text-white flex flex-col items-center justify-center p-4 text-center shadow-md shrink-0 border-2 border-[#DCEEFF]">
+                        <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-white font-extrabold text-2xl tracking-wider mb-2 border border-white/20">
+                          {initials}
+                        </div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#539FE0]">
+                          Partner
+                        </span>
+                      </div>
+                    )}
 
                     {/* Information Column */}
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-[#062B60] font-heading tracking-tight">
+                      <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap mb-1">
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-[#062B60] font-heading tracking-tight">
                           {leader.name}
                         </h3>
-                        <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-[#DCEEFF] text-[#062B60] uppercase tracking-wider shrink-0">
+                        <span className="px-2.5 py-0.5 rounded text-[11px] font-bold bg-[#DCEEFF] text-[#062B60] uppercase tracking-wider shrink-0">
                           {leader.designation}
                         </span>
                       </div>
 
-                      <p className="text-xs sm:text-sm font-semibold text-[#1464AD] mt-0.5">
+                      <p className="text-xs sm:text-sm font-semibold text-[#1464AD]">
                         {leader.role}
                       </p>
 
-                      <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-0.5 sm:py-1 rounded-full bg-[#F0F7FF] border border-[#BFE0FC] text-[#062B60] text-[11px] sm:text-xs font-semibold">
+                      <div className="inline-flex items-center gap-1.5 mt-2.5 px-3 py-1 rounded-full bg-[#F0F7FF] border border-[#BFE0FC] text-[#062B60] text-xs font-semibold">
                         <Award className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
                         <span>{leader.experienceYears}</span>
+                      </div>
+
+                      <div className="mt-4 p-3 rounded-xl bg-[#F7FAFD] border-l-4 border-[#1464AD] text-left">
+                        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#062B60] mb-0.5">
+                          <Briefcase className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
+                          <span>Global Firm Pedigree</span>
+                        </div>
+                        <p className="text-xs font-semibold text-[#17253A] leading-snug">
+                          {leader.pastExperience}
+                        </p>
                       </div>
                     </div>
                   </div>
