@@ -274,10 +274,10 @@ export default function Services() {
 
         {/* Strategic International Callout & Key Operating Cards */}
         <div className="mt-12 sm:mt-16 space-y-6">
-          <div className="relative space-y-5 md:space-y-0 md:grid md:grid-cols-2 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             
-            {/* Card 1: GCC-Based Time Schedule (Sticky Stacking Card on Mobile) */}
-            <div className="sticky top-24 sm:top-28 z-10 md:static md:z-auto p-5 sm:p-6 rounded-2xl bg-white border border-[#BFE0FC] shadow-[0_8px_30px_rgba(6,43,96,0.10)] hover:border-[#1464AD] hover:shadow-md transition-all duration-200">
+            {/* Card 1: GCC-Based Time Schedule */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#F7FAFD] border border-[#BFE0FC] shadow-2xs hover:border-[#1464AD] hover:shadow-sm transition-all duration-200">
               <div className="flex items-center gap-3.5 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-[#062B60] text-white flex items-center justify-center shrink-0 shadow-2xs">
                   <Clock className="w-5 h-5 text-[#539FE0]" />
@@ -300,8 +300,8 @@ export default function Services() {
               </div>
             </div>
 
-            {/* Card 2: Dedicated Employees (Stacks on Top of Card 1 as You Scroll on Mobile) */}
-            <div className="sticky top-32 sm:top-36 z-20 md:static md:z-auto p-5 sm:p-6 rounded-2xl bg-white border border-[#BFE0FC] shadow-[0_16px_40px_rgba(6,43,96,0.16)] hover:border-[#1464AD] hover:shadow-md transition-all duration-200">
+            {/* Card 2: Dedicated Employees */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#F7FAFD] border border-[#BFE0FC] shadow-2xs hover:border-[#1464AD] hover:shadow-sm transition-all duration-200">
               <div className="flex items-center gap-3.5 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-[#062B60] text-white flex items-center justify-center shrink-0 shadow-2xs">
                   <Users className="w-5 h-5 text-[#539FE0]" />

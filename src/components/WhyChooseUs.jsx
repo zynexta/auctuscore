@@ -43,14 +43,18 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {/* 3 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* 3 Pillars Grid (Interactive Sticky Stacking Cards on Mobile Scroll) */}
+        <div className="relative space-y-6 md:space-y-0 md:grid md:grid-cols-3 md:gap-8">
           {whyPartnerPillars.map((pillar, idx) => {
             const Icon = pillarIcons[pillar.icon] || Globe;
             return (
               <div
                 key={idx}
-                className="relative p-6 sm:p-8 lg:p-9 rounded-2xl bg-[#083675]/60 hover:bg-[#083675]/90 border border-white/15 hover:border-[#539FE0] backdrop-blur-sm transition-all duration-300 flex flex-col justify-between group shadow-xl"
+                style={{
+                  top: `calc(5.5rem + ${idx * 1.5}rem)`,
+                  zIndex: 10 + idx,
+                }}
+                className="sticky md:static md:z-auto p-6 sm:p-8 lg:p-9 rounded-2xl bg-[#083675] border border-white/20 hover:border-[#539FE0] backdrop-blur-md transition-all duration-300 flex flex-col justify-between group shadow-2xl"
               >
                 <div>
                   <div className="w-14 h-14 rounded-xl bg-white/10 group-hover:bg-[#1464AD] text-[#DCEEFF] group-hover:text-white flex items-center justify-center transition-colors duration-300 mb-6 border border-white/10 shadow-sm">

@@ -201,15 +201,19 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* 4-Category Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
-            {serviceCategories.map((cat) => {
+          {/* 4-Category Cards Grid (Interactive Sticky Stacking Cards on Mobile Scroll) */}
+          <div className="relative space-y-5 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 mb-14">
+            {serviceCategories.map((cat, idx) => {
               const IconComponent = categoryIconMap[cat.id] || Layers;
               const bullets = categoryBulletMap[cat.id] || [];
               return (
                 <div
                   key={cat.id}
-                  className="p-6 rounded-2xl bg-[#F7FAFD] border border-[#E3ECF5] hover:border-[#1464AD] hover:bg-white shadow-card-subtle hover-lift hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+                  style={{
+                    top: `calc(5rem + ${idx * 1.25}rem)`,
+                    zIndex: 10 + idx,
+                  }}
+                  className="sticky md:static md:z-auto p-6 rounded-2xl bg-white border border-[#E3ECF5] hover:border-[#1464AD] shadow-[0_10px_30px_rgba(6,43,96,0.10)] md:shadow-card-subtle hover-lift hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     {/* Category Icon & Pill */}
@@ -256,7 +260,7 @@ export default function Home() {
             })}
           </div>
 
-          {/* 4-Step Strategic Advisory Process */}
+          {/* 4-Step Strategic Advisory Process (Interactive Sticky Stacking Cards on Mobile Scroll) */}
           <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-[#F7FAFD] border border-[#E3ECF5]">
             <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-[#1464AD] block mb-2">
@@ -270,11 +274,15 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="relative space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6">
               {processSteps.map((step, sIdx) => (
                 <div
                   key={sIdx}
-                  className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E3ECF5] shadow-xs relative flex flex-col justify-between"
+                  style={{
+                    top: `calc(5.25rem + ${sIdx * 1.25}rem)`,
+                    zIndex: 10 + sIdx,
+                  }}
+                  className="sticky md:static md:z-auto p-5 sm:p-6 rounded-2xl bg-white border border-[#E3ECF5] shadow-[0_10px_30px_rgba(6,43,96,0.08)] md:shadow-xs relative flex flex-col justify-between"
                 >
                   <div>
                     <span className="text-2xl font-black text-[#1464AD]/25 font-heading block mb-2">
