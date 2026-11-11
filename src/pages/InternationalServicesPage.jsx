@@ -45,6 +45,21 @@ const iconMap = {
   Briefcase,
 };
 
+const internationalServiceImageMap = {
+  1: "/images/service-1-accounting.webp", // Accounting & Bookkeeping
+  2: "/images/service-2-reporting.webp", // Financial Reporting
+  3: "/images/service-4-receivable.webp", // AP & AR Management
+  4: "/images/card-global-skyline.webp", // Bank & Credit Card Reconciliation
+  5: "/images/service-3-payroll.webp", // Payroll Processing Support
+  6: "/images/service-8-gst-vat.webp", // VAT / GST Compliance
+  7: "/images/card-international.webp", // Financial Statements Preparation
+  8: "/images/card-fintech.webp", // Management Reporting & MIS
+  9: "/images/card-startup.webp", // Accounting Software Setup
+  10: "/images/card-boardroom.webp", // Backlog Clearance
+  11: "/images/service-6-virtual-cfo.webp", // Virtual CFO Support
+  12: "/images/card-corporate-tower.webp", // Business Advisory & Financial Analysis
+};
+
 export default function InternationalServicesPage() {
   const deliveryPillars = [
     {
@@ -254,23 +269,29 @@ export default function InternationalServicesPage() {
           <div className="relative space-y-6 md:space-y-0 md:grid md:grid-cols-2 md:gap-8">
             
             {/* Note Card 1: GCC Based Time Schedule (Sticky Stacking Card on Mobile) */}
-            <div className="sticky top-24 sm:top-28 z-10 md:static md:z-auto p-6 sm:p-8 rounded-2xl bg-white border border-[#BFE0FC] shadow-[0_8px_30px_rgba(6,43,96,0.10)] hover:shadow-md hover:border-[#1464AD] transition-all duration-300 relative group overflow-hidden">
+            <div className="sticky top-24 sm:top-28 z-10 md:static md:z-auto p-5 sm:p-7 rounded-2xl bg-white border border-[#BFE0FC] shadow-[0_8px_30px_rgba(6,43,96,0.10)] hover:shadow-md hover:border-[#1464AD] transition-all duration-300 relative group overflow-hidden">
               <div className="absolute top-0 left-0 h-1.5 w-full bg-[#1464AD]" />
               
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#062B60] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                  <Clock className="w-6 h-6 text-[#539FE0]" />
-                </div>
-                <div>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#DCEEFF] text-[#062B60] text-[11px] font-bold uppercase tracking-wider mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Timezone Synchronized
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#062B60] font-heading">
-                    GCC-Based Time Schedule
-                  </h3>
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#E3ECF5] bg-slate-100">
+                <img
+                  src="/images/card-gcc-schedule.webp"
+                  alt="GCC-Based Time Schedule"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#062B60]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                <span className="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#062B60]/85 backdrop-blur-xs text-white text-[10.5px] font-bold uppercase tracking-wider border border-white/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Timezone Synchronized
+                </span>
+                <div className="absolute top-2.5 right-2.5 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs text-[#062B60] flex items-center justify-center border border-white/40 shadow-xs">
+                  <Clock className="w-4 h-4 text-[#1464AD]" />
                 </div>
               </div>
+
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#062B60] font-heading mb-2">
+                GCC-Based Time Schedule
+              </h3>
 
               <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-5">
                 Our cross-border finance teams operate strictly aligned with GCC business hours (UAE, Saudi Arabia, Qatar, Bahrain, Kuwait &amp; Oman). We match your work week—whether Sunday-to-Thursday or Monday-to-Friday—ensuring real-time collaboration, zero lag in approvals, and instant responsiveness.
@@ -293,23 +314,29 @@ export default function InternationalServicesPage() {
             </div>
 
             {/* Note Card 2: Dedicated Employees (Stacks on Top of Card 1 as You Scroll on Mobile) */}
-            <div className="sticky top-32 sm:top-36 z-20 md:static md:z-auto p-6 sm:p-8 rounded-2xl bg-white border border-[#BFE0FC] shadow-[0_16px_40px_rgba(6,43,96,0.16)] hover:shadow-md hover:border-[#1464AD] transition-all duration-300 relative group overflow-hidden">
+            <div className="sticky top-32 sm:top-36 z-20 md:static md:z-auto p-5 sm:p-7 rounded-2xl bg-white border border-[#BFE0FC] shadow-[0_16px_40px_rgba(6,43,96,0.16)] hover:shadow-md hover:border-[#1464AD] transition-all duration-300 relative group overflow-hidden">
               <div className="absolute top-0 left-0 h-1.5 w-full bg-[#1464AD]" />
               
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#062B60] text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
-                  <Users className="w-6 h-6 text-[#539FE0]" />
-                </div>
-                <div>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#DCEEFF] text-[#062B60] text-[11px] font-bold uppercase tracking-wider mb-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#1464AD]" />
-                    Exclusive Resource Model
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#062B60] font-heading">
-                    Dedicated Employees
-                  </h3>
+              <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#E3ECF5] bg-slate-100">
+                <img
+                  src="/images/card-dedicated-employees.webp"
+                  alt="Dedicated Employees"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#062B60]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                <span className="absolute top-2.5 left-2.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#062B60]/85 backdrop-blur-xs text-white text-[10.5px] font-bold uppercase tracking-wider border border-white/20">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1464AD]" />
+                  Exclusive Resource Model
+                </span>
+                <div className="absolute top-2.5 right-2.5 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs text-[#062B60] flex items-center justify-center border border-white/40 shadow-xs">
+                  <Users className="w-4 h-4 text-[#1464AD]" />
                 </div>
               </div>
+
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[#062B60] font-heading mb-2">
+                Dedicated Employees
+              </h3>
 
               <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-5">
                 We assign qualified, dedicated accounting and finance professionals exclusively to your enterprise. Acting as a seamless offshore extension of your internal finance department, your dedicated resource handles daily ledgers, AP/AR, bank feeds, and reporting under Big Four partner oversight.
@@ -362,31 +389,38 @@ export default function InternationalServicesPage() {
               return (
                 <div
                   key={service.id}
-                  className="p-6 sm:p-7 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover:border-[#1464AD] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+                  className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover:border-[#1464AD] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group overflow-hidden"
                 >
                   <div>
-                    {/* Top Row: Icon + Number Index */}
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-12 h-12 rounded-xl bg-[#F0F7FF] border border-[#DCEEFF] text-[#1464AD] group-hover:bg-[#062B60] group-hover:text-white flex items-center justify-center shrink-0 transition-colors duration-200">
-                        <IconComponent className="w-6 h-6" />
-                      </div>
-                      <span className="text-xs font-extrabold text-[#5E718D]/60 font-mono tracking-wider">
+                    {/* Aspect Ratio Image Header */}
+                    <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#E3ECF5] bg-slate-100">
+                      <img
+                        src={internationalServiceImageMap[service.id] || "/images/card-international.webp"}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#062B60]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                      <span className="absolute top-2.5 right-2.5 text-xs font-extrabold text-white bg-[#062B60]/85 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20 font-mono shadow-xs">
                         #{formattedNumber}
                       </span>
+                      <div className="absolute top-2.5 left-2.5 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-xs text-[#062B60] flex items-center justify-center border border-white/40 shadow-xs">
+                        <IconComponent className="w-4 h-4 text-[#1464AD]" />
+                      </div>
                     </div>
 
                     {/* Service Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-[#062B60] group-hover:text-[#1464AD] transition-colors font-heading leading-snug mb-1.5">
+                    <h3 className="text-base sm:text-lg font-bold text-[#062B60] group-hover:text-[#1464AD] transition-colors font-heading leading-snug mb-1.5">
                       {service.title}
                     </h3>
 
                     {/* Tagline */}
-                    <p className="text-xs font-semibold text-[#1464AD] mb-3">
+                    <p className="text-xs font-semibold text-[#1464AD] mb-2.5">
                       {service.tagline}
                     </p>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-5">
+                    <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-4">
                       {service.description}
                     </p>
                   </div>

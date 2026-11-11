@@ -58,6 +58,36 @@ const iconMap = {
   ShieldAlert,
 };
 
+const serviceImageMap = {
+  "accounting-finance": "/images/card-accounting.webp",
+  "taxation-compliance": "/images/card-taxation.webp",
+  "business-registration": "/images/card-registration.webp",
+  international: "/images/card-international.webp",
+};
+
+const serviceSpecificImageMap = {
+  1: "/images/service-1-accounting.webp", // Accounting & Bookkeeping
+  2: "/images/service-2-reporting.webp", // Financial Reporting
+  3: "/images/service-3-payroll.webp", // Payroll Processing Support
+  4: "/images/service-4-receivable.webp", // Bank & Cash Management / AP & AR
+  5: "/images/service-5-advisory.webp", // Virtual CFO Leadership
+  6: "/images/service-6-virtual-cfo.webp", // Financial Modelling & Forecasting
+  7: "/images/service-7-direct-tax.webp", // Direct & Corporate Income Tax
+  8: "/images/service-8-gst-vat.webp", // GST & Regional VAT Compliance
+  9: "/images/card-accounting.webp", // Statutory Audit & Assurance
+  10: "/images/card-boardroom.webp", // ROC & Secretarial Filings
+  11: "/images/card-startup.webp", // Startup India & MSME Registration
+  12: "/images/card-registration.webp", // Pvt Ltd & LLP Incorporation
+  13: "/images/card-desk.webp", // Trademark & IP Protection
+  14: "/images/card-corporate-tower.webp", // Bankable Project Reports (DPR)
+  15: "/images/card-international.webp", // US GAAP & IFRS Accounting
+  16: "/images/card-global-skyline.webp", // Multi-Currency Bank Reconciliations
+  17: "/images/card-gcc-schedule.webp", // UAE Corporate Tax & FTA VAT
+  18: "/images/card-fintech.webp", // Management Reporting & MIS
+  19: "/images/card-dedicated-employees.webp", // Offshore Dedicated Resource
+  20: "/images/card-cfo.webp", // Global Transaction Advisory
+};
+
 export default function Services() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get("cat") || "all";
@@ -187,19 +217,27 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
             {filteredServices.map((service) => {
               const IconComponent = iconMap[service.icon] || ShieldCheck;
+              const serviceImg = serviceSpecificImageMap[service.id] || serviceImageMap[service.categoryId] || "/images/card-accounting.webp";
               return (
                 <div
                   key={service.id}
-                  className="group relative p-5 sm:p-6 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover-lift hover:border-[#1464AD] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between"
+                  className="group relative p-4 sm:p-5 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover-lift hover:border-[#1464AD] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between overflow-hidden"
                 >
                   <div>
-                    {/* Top Row: Category Pill & Icon */}
-                    <div className="flex items-center justify-between gap-2 mb-3.5">
-                      <span className="px-2.5 py-1 rounded-md bg-[#F0F7FF] text-[#1464AD] text-[10px] sm:text-[11px] font-bold border border-[#DCEEFF] uppercase tracking-wider">
+                    {/* Aspect Ratio Image Header */}
+                    <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-3.5 border border-[#E3ECF5]/80 bg-slate-100">
+                      <img
+                        src={serviceImg}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#062B60]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                      <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-[#062B60]/85 backdrop-blur-xs text-white text-[10px] font-bold border border-white/20 uppercase tracking-wider">
                         {service.categoryName.replace(" Services", "")}
                       </span>
-                      <div className="w-9 h-9 rounded-xl bg-[#F0F7FF] text-[#1464AD] group-hover:bg-[#062B60] group-hover:text-white flex items-center justify-center transition-colors duration-200 border border-[#DCEEFF]">
-                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-white/90 backdrop-blur-xs text-[#062B60] flex items-center justify-center border border-white/40 shadow-xs">
+                        <IconComponent className="w-3.5 h-3.5 text-[#1464AD]" />
                       </div>
                     </div>
 
@@ -277,23 +315,32 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             
             {/* Card 1: GCC-Based Time Schedule */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#F7FAFD] border border-[#BFE0FC] shadow-2xs hover:border-[#1464AD] hover:shadow-sm transition-all duration-200">
-              <div className="flex items-center gap-3.5 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#062B60] text-white flex items-center justify-center shrink-0 shadow-2xs">
-                  <Clock className="w-5 h-5 text-[#539FE0]" />
-                </div>
-                <div>
-                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#1464AD] block">
+            <div className="group p-5 sm:p-6 rounded-2xl bg-white border border-[#BFE0FC] shadow-2xs hover:border-[#1464AD] hover:shadow-sm transition-all duration-200 flex flex-col justify-between overflow-hidden">
+              <div>
+                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#E3ECF5] bg-slate-100">
+                  <img
+                    src="/images/card-gcc-schedule.webp"
+                    alt="GCC-Based Time Schedule"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#062B60]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                  <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-[#062B60]/85 backdrop-blur-xs text-white text-[10px] font-bold border border-white/20 uppercase tracking-wider">
                     Timezone Synchronized
                   </span>
-                  <h4 className="text-base sm:text-lg font-bold text-[#062B60] font-heading">
-                    GCC-Based Time Schedule
-                  </h4>
+                  <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-white/90 backdrop-blur-xs text-[#062B60] flex items-center justify-center border border-white/40 shadow-xs">
+                    <Clock className="w-3.5 h-3.5 text-[#1464AD]" />
+                  </div>
                 </div>
+
+                <h4 className="text-base sm:text-lg font-bold text-[#062B60] font-heading mb-2">
+                  GCC-Based Time Schedule
+                </h4>
+                <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-4">
+                  Operating strictly aligned with UAE, Saudi Arabia, Qatar, and Gulf region business hours (Sunday to Thursday or Monday to Friday) for real-time collaboration with zero timezone delays.
+                </p>
               </div>
-              <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-3">
-                Operating strictly aligned with UAE, Saudi Arabia, Qatar, and Gulf region business hours (Sunday to Thursday or Monday to Friday) for real-time collaboration with zero timezone delays.
-              </p>
+
               <div className="flex items-center gap-2 text-xs font-semibold text-[#062B60] pt-2.5 border-t border-[#E3ECF5]">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
                 <span>GST &amp; AST Working Hours Aligned</span>
@@ -301,23 +348,32 @@ export default function Services() {
             </div>
 
             {/* Card 2: Dedicated Employees */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#F7FAFD] border border-[#BFE0FC] shadow-2xs hover:border-[#1464AD] hover:shadow-sm transition-all duration-200">
-              <div className="flex items-center gap-3.5 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#062B60] text-white flex items-center justify-center shrink-0 shadow-2xs">
-                  <Users className="w-5 h-5 text-[#539FE0]" />
-                </div>
-                <div>
-                  <span className="text-[10.5px] font-bold uppercase tracking-wider text-[#1464AD] block">
+            <div className="group p-5 sm:p-6 rounded-2xl bg-white border border-[#BFE0FC] shadow-2xs hover:border-[#1464AD] hover:shadow-sm transition-all duration-200 flex flex-col justify-between overflow-hidden">
+              <div>
+                <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#E3ECF5] bg-slate-100">
+                  <img
+                    src="/images/card-dedicated-employees.webp"
+                    alt="Dedicated Employees"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#062B60]/60 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
+                  <span className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-md bg-[#062B60]/85 backdrop-blur-xs text-white text-[10px] font-bold border border-white/20 uppercase tracking-wider">
                     Exclusive Resource Allocation
                   </span>
-                  <h4 className="text-base sm:text-lg font-bold text-[#062B60] font-heading">
-                    Dedicated Employees
-                  </h4>
+                  <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-lg bg-white/90 backdrop-blur-xs text-[#062B60] flex items-center justify-center border border-white/40 shadow-xs">
+                    <Users className="w-3.5 h-3.5 text-[#1464AD]" />
+                  </div>
                 </div>
+
+                <h4 className="text-base sm:text-lg font-bold text-[#062B60] font-heading mb-2">
+                  Dedicated Employees
+                </h4>
+                <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-4">
+                  Qualified and vetted accounting professionals assigned exclusively to your enterprise, functioning as a seamless offshore extension of your internal finance department with partner oversight.
+                </p>
               </div>
-              <p className="text-xs sm:text-sm text-[#5E718D] leading-relaxed mb-3">
-                Qualified and vetted accounting professionals assigned exclusively to your enterprise, functioning as a seamless offshore extension of your internal finance department with partner oversight.
-              </p>
+
               <div className="flex items-center gap-2 text-xs font-semibold text-[#062B60] pt-2.5 border-t border-[#E3ECF5]">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
                 <span>100% Dedicated to Your Business</span>

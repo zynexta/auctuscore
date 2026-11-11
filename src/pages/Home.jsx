@@ -34,6 +34,13 @@ const categoryIconMap = {
   international: Globe2,
 };
 
+const categoryImageMap = {
+  "accounting-finance": "/images/card-accounting.webp",
+  "taxation-compliance": "/images/card-taxation.webp",
+  "business-registration": "/images/card-registration.webp",
+  international: "/images/card-international.webp",
+};
+
 const categoryBulletMap = {
   "accounting-finance": [
     "Accounting & Bookkeeping",
@@ -175,8 +182,15 @@ export default function Home() {
       </section>
 
       {/* 4. Core Practice Categories Showcase (Making all services instantly discoverable) */}
-      <section className="py-14 sm:py-20 lg:py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-20 lg:py-24 bg-[#F8FAFC] relative overflow-hidden">
+        {/* Subtle Architectural Background Image with Gradient Overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center pointer-events-none opacity-20"
+          style={{ backgroundImage: "url('/images/home-section-bg.webp')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-[#F8FAFC]/80 to-white/95 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
@@ -206,6 +220,7 @@ export default function Home() {
             {serviceCategories.map((cat, idx) => {
               const IconComponent = categoryIconMap[cat.id] || Layers;
               const bullets = categoryBulletMap[cat.id] || [];
+              const cardImg = categoryImageMap[cat.id];
               return (
                 <div
                   key={cat.id}
@@ -213,23 +228,34 @@ export default function Home() {
                     top: `calc(5rem + ${idx * 1.25}rem)`,
                     zIndex: 10 + idx,
                   }}
-                  className="sticky md:static md:z-auto p-6 rounded-2xl bg-white border border-[#E3ECF5] hover:border-[#1464AD] shadow-[0_10px_30px_rgba(6,43,96,0.10)] md:shadow-card-subtle hover-lift hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+                  className="sticky md:static md:z-auto p-5 sm:p-5 lg:p-6 rounded-2xl bg-white/95 backdrop-blur-xs border border-[#E3ECF5] hover:border-[#1464AD] shadow-[0_10px_30px_rgba(6,43,96,0.10)] md:shadow-card-subtle hover-lift hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group overflow-hidden"
                 >
                   <div>
-                    {/* Category Icon & Pill */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-11 h-11 rounded-xl bg-white group-hover:bg-[#062B60] text-[#1464AD] group-hover:text-white flex items-center justify-center transition-colors duration-200 border border-[#DCEEFF] shadow-xs">
-                        <IconComponent className="w-5 h-5" />
+                    {/* Aspect-Ratio Card Header Image */}
+                    {cardImg && (
+                      <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden mb-4 border border-[#E3ECF5]/80 bg-slate-100">
+                        <img
+                          src={cardImg}
+                          alt={cat.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#062B60]/60 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity" />
+                        <span className="absolute top-2.5 right-2.5 text-[10px] font-bold text-white bg-[#062B60]/85 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/20 shadow-xs">
+                          {cat.count} Disciplines
+                        </span>
                       </div>
-                      <span className="text-[11px] font-bold text-[#1464AD] bg-white px-2.5 py-1 rounded-md border border-[#DCEEFF]">
-                        {cat.count} Disciplines
-                      </span>
-                    </div>
+                    )}
 
-                    {/* Category Title */}
-                    <h3 className="text-lg font-bold text-[#062B60] group-hover:text-[#1464AD] transition-colors mb-2 font-heading">
-                      {cat.name}
-                    </h3>
+                    {/* Category Title & Icon */}
+                    <div className="flex items-center gap-2.5 mb-2.5">
+                      <div className="w-8 h-8 rounded-lg bg-[#EBF4FE] group-hover:bg-[#062B60] text-[#1464AD] group-hover:text-white flex items-center justify-center transition-colors duration-200 border border-[#DCEEFF] shrink-0">
+                        <IconComponent className="w-4 h-4" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold text-[#062B60] group-hover:text-[#1464AD] transition-colors font-heading leading-snug">
+                        {cat.name}
+                      </h3>
+                    </div>
 
                     {/* Category Tagline */}
                     <p className="text-xs text-[#5E718D] leading-relaxed mb-4">
