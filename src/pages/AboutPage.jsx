@@ -9,11 +9,29 @@ import { companyInfo } from "../data/companyData";
 export default function AboutPage() {
   return (
     <div className="w-full">
-      {/* Dedicated Page Header Banner */}
-      <section className="pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 bg-[#062B60] text-white relative overflow-hidden">
-        {/* Subtle background grid */}
-        <div className="absolute inset-0 bg-grid-subtle pointer-events-none opacity-20"></div>
-        <div className="absolute -top-24 right-10 w-96 h-96 bg-[#1464AD]/30 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Dedicated Page Header Banner with 2K Corporate Architectural Background */}
+      <section className="pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 bg-[#03142C] text-white relative overflow-hidden">
+        {/* 2K Background Image */}
+        <picture className="absolute inset-0 w-full h-full pointer-events-none -z-0">
+          <source srcSet="/images/page-hero-about.webp" type="image/webp" />
+          <img
+            src="/images/page-hero-about.webp"
+            alt="About Auctus Corporate Pedigree"
+            className="w-full h-full object-cover object-center lg:object-[68%_center] select-none contrast-[1.05] brightness-[0.98]"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </picture>
+
+        {/* Multi-Stop Dark Gradient Overlay for Maximum Readability */}
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#03142C]/95 from-20% via-[#062B60]/85 via-48% to-[#03142C]/30 md:to-transparent pointer-events-none z-[1]"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-[#03142C]/50 via-transparent to-[#03142C]/80 pointer-events-none z-[1]"
+          aria-hidden="true"
+        />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Breadcrumb Navigation */}

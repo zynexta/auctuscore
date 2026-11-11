@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import ServicesPage from "./pages/ServicesPage";
+import InternationalServicesPage from "./pages/InternationalServicesPage";
 import ContactPage from "./pages/ContactPage";
 import { MessageCircle, Phone, ArrowUpRight } from "lucide-react";
 import { companyInfo } from "./data/companyData";
@@ -39,6 +40,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/international-services" element={<InternationalServicesPage />} />
+          <Route path="/international" element={<Navigate to="/international-services" replace />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

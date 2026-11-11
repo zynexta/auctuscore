@@ -1,135 +1,120 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ShieldCheck, Globe2, Building2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
+  const metrics = [
+    {
+      value: "15+",
+      title: "Years Leadership Pedigree",
+      subtitle: "Big Four Alumni Credentials",
+    },
+    {
+      value: "4",
+      title: "Core Practice Categories",
+      subtitle: "20 Specialized Disciplines",
+    },
+    {
+      value: "Global",
+      title: "India, GCC & USA Reach",
+      subtitle: "Cross-Border Accounting",
+    },
+    {
+      value: "100%",
+      title: "Statutory Adherence",
+      subtitle: "IFRS & GAAP Compliance",
+    },
+  ];
+
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[100svh] bg-cover bg-[position:right_center] lg:bg-[position:center_right] flex items-center overflow-hidden"
-      style={{ backgroundImage: "url('/images/hero-bg.webp')" }}
+      className="relative w-full min-h-screen min-h-[100svh] lg:min-h-screen flex flex-col justify-between bg-[#03142C] overflow-hidden"
     >
-      {/* Soft Luminous Gradient Overlay for Optimal Text Readability & Edge Blend */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-r from-white via-white/95 sm:via-white/85 md:via-white/75 lg:via-white/60 to-transparent pointer-events-none" 
+      {/* 1. Ultra-High Resolution (2K QHD) Corporate Boardroom Background Image */}
+      <picture className="absolute inset-0 w-full h-full pointer-events-none -z-0">
+        <source
+          srcSet="/images/hero-boardroom-2k.webp?v=2"
+          type="image/webp"
+        />
+        <img
+          src="/images/hero-boardroom-2k.jpg?v=2"
+          alt="Auctus Corporate Boardroom Advisory"
+          className="w-full h-full object-cover object-center lg:object-[68%_center] select-none contrast-[1.05] brightness-[1.01]"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+
+      {/* 2. Razor-Clean Dark Gradient Overlay — Pure Text Legibility on Left, Crystal Clear Office on Right */}
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-[#03142C]/95 from-25% via-[#03142C]/80 via-48% to-transparent pointer-events-none z-[1]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-[#03142C]/40 via-transparent via-20% to-[#03142C]/40 pointer-events-none z-[1]"
         aria-hidden="true"
       />
 
-      {/* Subtle Top & Bottom Ambient Wave Highlights */}
-      <div 
-        className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white/40 to-transparent pointer-events-none"
-        aria-hidden="true"
-      />
-      <div 
-        className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/50 to-transparent pointer-events-none"
-        aria-hidden="true"
-      />
-
-      {/* Main Full-Height Content Container (Edge-to-edge section with 5-7% horizontal padding) */}
-      <div className="relative z-10 w-full min-h-[100svh] flex items-center px-5 sm:px-8 lg:px-[6%] xl:px-[7%] pt-24 sm:pt-28 lg:pt-24 pb-12 sm:pb-16 lg:pb-14">
-        
-        {/* Left Column: Left-Aligned Content Architecture */}
-        <div className="max-w-2xl lg:max-w-2xl xl:max-w-3xl flex flex-col items-start text-left">
-          
-          {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-[#EBF4FE] border border-[#BFE0FC] mb-4 sm:mb-6 shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-[#1464AD] animate-pulse shrink-0" />
-            <span className="text-[10px] xs:text-[11px] sm:text-xs font-bold tracking-wider text-[#062B60] uppercase">
-              Chartered Accountants & Financial Advisors
-            </span>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[62px] font-extrabold font-heading leading-[1.12] tracking-tight mb-4 sm:mb-6">
-            <span className="text-[#062B60] block">
-              Clarity in Finance.
-            </span>
-            <span className="text-[#1464AD] block mt-1 sm:mt-1.5">
-              Confidence in Growth.
+      {/* 3. Hero Main Content Container */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-16 flex-grow flex items-center">
+        <div className="max-w-3xl flex flex-col items-start text-left">
+          {/* Main Heading */}
+          <h1 className="text-4xl xs:text-5xl sm:text-6xl lg:text-[64px] xl:text-[70px] font-extrabold font-heading text-white leading-[1.1] sm:leading-[1.12] tracking-[-0.035em] mb-6">
+            Assurance{" "}
+            <span className="text-[#38BDF8] drop-shadow-[0_2px_20px_rgba(56,189,248,0.35)]">
+              Beyond Compliance
             </span>
           </h1>
 
           {/* Description */}
-          <p className="text-sm sm:text-base lg:text-lg text-[#5E718D] leading-relaxed max-w-xl lg:max-w-2xl mb-7 sm:mb-10 font-normal">
-            Empowering businesses with reliable accounting, auditing, taxation, compliance, and strategic financial advisory solutions.
+          <p className="text-base sm:text-lg lg:text-[19px] text-[#DCEEFF]/90 leading-relaxed font-normal max-w-2xl mb-8 sm:mb-10">
+            From company registration and GST filing to tax compliance and business advisory, we simplify every step of your business journey.
           </p>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-12 w-full sm:w-auto">
-            <Link
-              to="/services"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-[#062B60] hover:bg-[#1464AD] text-white text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#1464AD]"
-            >
-              <span>Explore Our Services</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
             <Link
               to="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-white/95 backdrop-blur-xs border border-[#062B60]/30 hover:border-[#1464AD] text-[#062B60] hover:text-[#1464AD] hover:bg-[#F0F7FF] text-xs sm:text-sm font-bold tracking-wide transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#1464AD]"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white hover:bg-[#F0F7FF] text-[#062B60] text-sm sm:text-base font-bold tracking-wide transition-all duration-200 shadow-lg hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 min-h-[50px] group"
             >
-              <span>Contact Our Experts</span>
+              <span>Get Free Consultation</span>
+              <ArrowRight className="w-4 h-4 text-[#1464AD] group-hover:translate-x-0.5 transition-transform duration-200" />
+            </Link>
+
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 hover:border-white/50 text-white text-sm sm:text-base font-semibold tracking-wide transition-all duration-200 shadow-sm hover:-translate-y-0.5 active:translate-y-0 min-h-[50px]"
+            >
+              <span>Explore Our Services</span>
             </Link>
           </div>
-
-          {/* Feature Highlights (Clean horizontal row with dividers on desktop) */}
-          <div className="pt-6 sm:pt-8 border-t border-[#E3ECF5]/90 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 lg:gap-8 w-full">
-            
-            {/* Feature 1 */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#EBF4FE] text-[#1464AD] border border-[#DCEEFF] flex items-center justify-center shrink-0">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-xs sm:text-sm font-bold text-[#062B60] whitespace-nowrap">
-                  Big 4 Pedigree
-                </div>
-                <div className="text-[11px] sm:text-xs text-[#5E718D] whitespace-nowrap">
-                  EY, Deloitte & GT alumni
-                </div>
-              </div>
-            </div>
-
-            {/* Subtle Divider */}
-            <div className="hidden sm:block w-px h-8 bg-[#E3ECF5]" aria-hidden="true" />
-
-            {/* Feature 2 */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#EBF4FE] text-[#1464AD] border border-[#DCEEFF] flex items-center justify-center shrink-0">
-                <Globe2 className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-xs sm:text-sm font-bold text-[#062B60] whitespace-nowrap">
-                  Global Reach
-                </div>
-                <div className="text-[11px] sm:text-xs text-[#5E718D] whitespace-nowrap">
-                  India, GCC & USA markets
-                </div>
-              </div>
-            </div>
-
-            {/* Subtle Divider */}
-            <div className="hidden sm:block w-px h-8 bg-[#E3ECF5]" aria-hidden="true" />
-
-            {/* Feature 3 */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#EBF4FE] text-[#1464AD] border border-[#DCEEFF] flex items-center justify-center shrink-0">
-                <Building2 className="w-5 h-5" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-xs sm:text-sm font-bold text-[#062B60] whitespace-nowrap">
-                  Corporate Advisory
-                </div>
-                <div className="text-[11px] sm:text-xs text-[#5E718D] whitespace-nowrap">
-                  Audit, Tax & Compliance
-                </div>
-              </div>
-            </div>
-
-          </div>
-
         </div>
+      </div>
 
+      {/* 4. Docked Executive Metrics Strip (Flawless Responsive Grid Alignment) */}
+      <div className="relative z-20 w-full bg-[#03142C]/85 backdrop-blur-md border-t border-white/10 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-0">
+            {metrics.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-3 sm:p-3.5 lg:py-0 lg:px-6 rounded-xl bg-white/[0.04] lg:bg-transparent border border-white/10 lg:border-0 lg:border-l lg:border-white/15 lg:first:border-l-0 flex flex-col items-center sm:items-start text-center sm:text-left justify-center"
+              >
+                <span className="text-xl sm:text-2xl lg:text-[28px] font-extrabold text-[#38BDF8] font-heading leading-none">
+                  {item.value}
+                </span>
+                <span className="text-xs sm:text-[13px] font-bold text-white mt-1.5 leading-tight">
+                  {item.title}
+                </span>
+                <span className="text-[10px] sm:text-[11px] text-[#DCEEFF]/70 mt-1 leading-tight">
+                  {item.subtitle}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

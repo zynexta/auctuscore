@@ -40,11 +40,6 @@ export default function Footer() {
             <p className="text-xs sm:text-sm text-[#DCEEFF]/85 leading-relaxed">
               Empowering businesses with reliable accounting, auditing, taxation, compliance, and strategic financial advisory solutions across India, the GCC, and global markets.
             </p>
-
-            <div className="pt-1 flex items-center gap-2 text-xs text-[#539FE0]">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
-              <span className="font-medium">Clarity in Finance. Confidence in Growth.</span>
-            </div>
           </div>
 
           {/* Box 2: Quick Links Navigation Box */}
@@ -82,6 +77,15 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/international-services"
+                  className="text-[#539FE0] hover:text-white font-bold transition-colors py-0.5 truncate flex items-center gap-1"
+                >
+                  <span>Our International Services</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </li>
             </ul>
           </div>
 

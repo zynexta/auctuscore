@@ -11,143 +11,145 @@ import {
   Award,
   Briefcase,
   Globe2,
-  FileCheck2,
   ReceiptText,
   BookOpenCheck,
-  Scale,
+  Building2,
   LineChart,
+  Layers,
+  ChevronRight,
 } from "lucide-react";
 import Hero from "../components/Hero";
-import GlobalServices from "../components/GlobalServices";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Contact from "../components/Contact";
 import {
   companyInfo,
-  coreServices,
+  serviceCategories,
   whyWeArePillars,
-  leadershipTeam,
 } from "../data/companyData";
 
-const iconMap = {
-  ShieldCheck,
-  TrendingUp,
-  Sliders,
-  Handshake,
+const categoryIconMap = {
+  "accounting-finance": BookOpenCheck,
+  "taxation-compliance": ReceiptText,
+  "business-registration": Building2,
+  international: Globe2,
 };
 
-export default function Home() {
-  const processSteps = [
-    {
-      step: "01",
-      title: "Diagnostic & Scoping",
-      desc: "Comprehensive review of books, tax positions, regulatory standing, and risk exposure.",
-    },
-    {
-      step: "02",
-      title: "Strategic Architecture",
-      desc: "Tailored tax-efficient structuring, ERP workflow design, and internal controls setup.",
-    },
-    {
-      step: "03",
-      title: "Systematic Execution",
-      desc: "Precision bookkeeping, statutory filings, ROC documentation, and audit readiness.",
-    },
-    {
-      step: "04",
-      title: "CFO-Level Advisory",
-      desc: "Continuous cash-flow forecasting, board reporting, and cross-border expansion guidance.",
-    },
-  ];
+const categoryBulletMap = {
+  "accounting-finance": [
+    "Accounting & Bookkeeping",
+    "Monthly & Annual Financial Reporting",
+    "Payroll Processing Support",
+    "Virtual CFO Leadership",
+  ],
+  "taxation-compliance": [
+    "Direct & Corporate Income Tax",
+    "GST & Regional VAT Compliance",
+    "Statutory Audit & Assurance",
+    "ROC & Secretarial Filings",
+  ],
+  "business-registration": [
+    "Startup India & MSME Registration",
+    "Pvt Ltd & LLP Incorporation",
+    "Trademark & IP Protection",
+    "Bankable Project Reports (DPR)",
+  ],
+  international: [
+    "US GAAP & IFRS Accounting",
+    "Multi-Currency Bank Reconciliations",
+    "UAE Corporate Tax & FTA VAT",
+    "Management Reporting & MIS",
+  ],
+};
 
+const processSteps = [
+  {
+    step: "01",
+    title: "Diagnostic & Scoping",
+    desc: "Comprehensive review of books, tax positions, regulatory standing, and business risk exposure.",
+  },
+  {
+    step: "02",
+    title: "Strategic Architecture",
+    desc: "Tailored tax-efficient structuring, cloud accounting workflows, and robust internal controls.",
+  },
+  {
+    step: "03",
+    title: "Systematic Execution",
+    desc: "Precision bookkeeping, statutory filings, ROC documentation, and audit-ready schedules.",
+  },
+  {
+    step: "04",
+    title: "CFO-Level Advisory",
+    desc: "Continuous cash-flow forecasting, executive board reporting, and cross-border expansion guidance.",
+  },
+];
+
+export default function Home() {
   return (
     <div className="w-full">
-      {/* 1. Hero Section (Restored Initial Split Hero with Badges & CTAs) */}
+      {/* 1. Full-Bleed Executive Hero Section with Docked Metrics */}
       <Hero />
 
-      {/* 2. Executive Metrics Strip (Glued directly below Hero) */}
-      <section className="bg-[#062B60] text-white border-y border-white/10 relative z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
-            <div className="flex flex-col items-center sm:items-start text-center sm:text-left pt-3 sm:pt-0">
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#539FE0] font-heading">
-                15+
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-[#DCEEFF] mt-1">
-                Years Leadership Pedigree
-              </span>
-              <span className="text-[11px] text-[#DCEEFF]/70">Big Four Alumni Credentials</span>
-            </div>
-
-            <div className="flex flex-col items-center sm:items-start text-center sm:text-left pt-3 sm:pt-0 sm:pl-8">
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#539FE0] font-heading">
-                9
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-[#DCEEFF] mt-1">
-                Core Practice Disciplines
-              </span>
-              <span className="text-[11px] text-[#DCEEFF]/70">Audit, Tax & CFO Advisory</span>
-            </div>
-
-            <div className="flex flex-col items-center sm:items-start text-center sm:text-left pt-3 sm:pt-0 sm:pl-8">
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#539FE0] font-heading">
-                Global
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-[#DCEEFF] mt-1">
-                India, GCC & USA Reach
-              </span>
-              <span className="text-[11px] text-[#DCEEFF]/70">Cross-Border Accounting</span>
-            </div>
-
-            <div className="flex flex-col items-center sm:items-start text-center sm:text-left pt-3 sm:pt-0 sm:pl-8">
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#539FE0] font-heading">
-                100%
-              </span>
-              <span className="text-xs sm:text-sm font-semibold text-[#DCEEFF] mt-1">
-                Statutory Adherence
-              </span>
-              <span className="text-[11px] text-[#DCEEFF]/70">IFRS & GAAP Compliance</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. COMBINED MASTER SECTION: About Auctus Core + Partner Leadership Spotlight */}
-      {/* (Two sections joined seamlessly as one unified corporate showcase) */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-[#F7FAFD] relative border-b border-[#E3ECF5]">
+      {/* 2. Executive Firm Overview & Strategic Value Pillars */}
+      <section className="py-14 sm:py-20 lg:py-24 bg-[#F7FAFD] relative border-b border-[#E3ECF5]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Part A: Firm Story & 4 Foundation Pillars */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center pb-14 sm:pb-16 border-b border-[#E3ECF5]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Narrative Column */}
             <div className="lg:col-span-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DCEEFF] text-[#062B60] text-xs font-bold uppercase tracking-wider mb-4">
-                About Auctus Core
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DCEEFF] text-[#062B60] text-xs font-bold uppercase tracking-wider mb-4 border border-[#BFE0FC]">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#1464AD]" />
+                Firm Credentials & Pedigree
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#062B60] tracking-tight font-heading leading-tight mb-4">
                 Your Trusted Partner in Financial Excellence.
               </h2>
               <p className="text-sm sm:text-base text-[#5E718D] leading-relaxed mb-6 font-normal">
-                Built upon decades of collective experience in Big Four and top-tier global accounting firms, Auctus Core partners with enterprises across India, the GCC, and international markets to secure long-term financial health and statutory compliance.
+                Built upon decades of collective experience in Big Four (EY, Deloitte) and premier international accounting firms, Auctus Core partners with enterprises across India, the GCC, and global markets to secure rigorous statutory compliance, transparent governance, and sustainable commercial growth.
               </p>
 
-              <div className="p-4 rounded-xl bg-white border border-[#E3ECF5] shadow-xs mb-8 flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#1464AD] shrink-0 mt-0.5" />
-                <p className="text-xs sm:text-sm text-[#062B60] font-semibold leading-relaxed">
-                  Direct engagement model: All client matters are overseen by certified Chartered Accountants and qualified financial advisors.
-                </p>
+              <div className="space-y-3 mb-8">
+                <div className="p-3.5 rounded-xl bg-white border border-[#E3ECF5] shadow-xs flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-[#1464AD] shrink-0" />
+                  <span className="text-xs sm:text-sm text-[#062B60] font-semibold">
+                    Direct partner oversight by certified Chartered Accountants (FCA) on every engagement.
+                  </span>
+                </div>
+                <div className="p-3.5 rounded-xl bg-white border border-[#E3ECF5] shadow-xs flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-[#1464AD] shrink-0" />
+                  <span className="text-xs sm:text-sm text-[#062B60] font-semibold">
+                    Cross-border capabilities spanning India, UAE, Saudi Arabia, Qatar, Bahrain, Oman, UK & USA.
+                  </span>
+                </div>
               </div>
 
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#062B60] hover:bg-[#1464AD] text-white text-xs sm:text-sm font-bold tracking-wide transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
-              >
-                <span>Read Full Profile & Firm Governance</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#062B60] hover:bg-[#1464AD] text-white text-xs sm:text-sm font-bold tracking-wide transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  <span>Meet Our Partners & Read Full Profile</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white border border-[#CBD5E1] hover:border-[#1464AD] text-[#062B60] hover:text-[#1464AD] text-xs sm:text-sm font-bold tracking-wide transition-all shadow-xs"
+                >
+                  <span>Explore Practice Areas</span>
+                </Link>
+              </div>
             </div>
 
-            {/* Right Column: 4 Foundation Pillars */}
+            {/* Right Pillars Grid */}
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {whyWeArePillars.map((pillar, idx) => {
+                const iconMap = {
+                  ShieldCheck,
+                  TrendingUp,
+                  Sliders,
+                  Handshake,
+                };
                 const IconComponent = iconMap[pillar.icon] || ShieldCheck;
                 return (
                   <div
@@ -167,174 +169,94 @@ export default function Home() {
                 );
               })}
             </div>
+
           </div>
-
-          {/* Part B: Attached Partner Leadership Spotlight (Featuring Ummer Sadique B&W Portrait & CA Shahid Ali) */}
-          <div className="pt-12 sm:pt-16">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#1464AD] block mb-1">
-                  Partner Leadership
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#062B60] font-heading tracking-tight">
-                  Led by Proven Financial Authorities
-                </h3>
-              </div>
-
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#1464AD] hover:text-[#062B60] transition-colors group"
-              >
-                <span>Meet Both Partners on About Page</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {leadershipTeam.map((leader, index) => {
-                const initials = leader.name
-                  .replace("CA ", "")
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("");
-
-                return (
-                  <div
-                    key={index}
-                    className="p-5 sm:p-7 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover:border-[#1464AD] hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
-                  >
-                    <div>
-                      <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 pb-5 border-b border-[#E3ECF5]">
-                        {leader.image ? (
-                          <div className="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl overflow-hidden border-2 border-[#DCEEFF] shadow-md shrink-0 bg-slate-100 group-hover:border-[#1464AD] transition-colors">
-                            <img
-                              src={leader.image}
-                              alt={leader.name}
-                              className="w-full h-full object-cover object-center filter grayscale contrast-105"
-                              loading="lazy"
-                              width="240"
-                              height="300"
-                            />
-                          </div>
-                        ) : (
-                          <div className="w-24 h-32 sm:w-28 sm:h-36 rounded-2xl bg-gradient-to-br from-[#062B60] to-[#0D3B7C] text-white flex flex-col items-center justify-center p-3 text-center shadow-md shrink-0 border-2 border-[#DCEEFF]">
-                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white font-extrabold text-xl tracking-wider mb-1.5 border border-white/20">
-                              {initials}
-                            </div>
-                            <span className="text-[9px] font-bold uppercase tracking-wider text-[#539FE0]">
-                              Partner
-                            </span>
-                          </div>
-                        )}
-
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <h4 className="text-lg sm:text-xl font-extrabold text-[#062B60] font-heading tracking-tight">
-                              {leader.name}
-                            </h4>
-                            <span className="px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-bold bg-[#DCEEFF] text-[#062B60] uppercase tracking-wider shrink-0">
-                              {leader.designation}
-                            </span>
-                          </div>
-
-                          <p className="text-xs sm:text-sm font-semibold text-[#1464AD] mt-0.5">
-                            {leader.role}
-                          </p>
-
-                          <div className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-0.5 rounded-full bg-[#F0F7FF] border border-[#BFE0FC] text-[#062B60] text-[11px] font-semibold">
-                            <Award className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
-                            <span>{leader.experienceYears}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="pt-4">
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#062B60] mb-1">
-                          <Briefcase className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
-                          <span>Credentials & Pedigree</span>
-                        </div>
-                        <p className="text-xs text-[#5E718D] leading-relaxed">
-                          {leader.pastExperience}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-5 pt-4 border-t border-[#E3ECF5]/80 flex flex-wrap gap-1.5">
-                      {leader.specialisations.slice(0, 3).map((spec, sIdx) => (
-                        <span
-                          key={sIdx}
-                          className="px-2.5 py-1 rounded-md bg-[#F0F7FF] text-[#062B60] text-[11px] font-semibold border border-[#DCEEFF]"
-                        >
-                          {spec}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* 4. COMBINED MASTER SECTION: Featured Practice Areas + 4-Step Strategic Advisory Process */}
-      {/* (Glued together seamlessly) */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-white relative">
+      {/* 4. Core Practice Categories Showcase (Making all services instantly discoverable) */}
+      <section className="py-14 sm:py-20 lg:py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Part A: Featured Practice Areas */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCEEFF] text-[#062B60] text-xs font-bold uppercase tracking-wider mb-3">
-                Practice Areas
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF4FE] text-[#062B60] text-xs font-bold uppercase tracking-wider mb-3 border border-[#BFE0FC]">
+                <Layers className="w-3.5 h-3.5 text-[#1464AD]" />
+                Service Categories
               </div>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-[#062B60] tracking-tight font-heading">
-                Comprehensive Financial Solutions
+                Four Pillars of Financial Advisory
               </h2>
+              <p className="text-xs sm:text-sm text-[#5E718D] mt-1 max-w-xl">
+                Browse our comprehensive corporate services structured across four specialized practice disciplines.
+              </p>
             </div>
 
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1464AD] hover:text-[#062B60] transition-colors group"
+              className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#1464AD] hover:text-[#062B60] transition-colors group shrink-0"
             >
-              <span>Explore All 9 Practice Disciplines</span>
+              <span>Explore All 20 Practice Disciplines</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-16 sm:mb-20">
-            {coreServices.slice(0, 4).map((service) => (
-              <div
-                key={service.id}
-                className="p-6 rounded-2xl bg-white border border-[#E3ECF5] shadow-card-subtle hover-lift hover:border-[#1464AD] transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="text-xs font-bold text-[#1464AD] bg-[#F0F7FF] px-2.5 py-1 rounded-md w-fit mb-4 border border-[#DCEEFF]">
-                    0{service.id}
-                  </div>
-                  <h3 className="text-lg font-bold text-[#062B60] mb-2 font-heading">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs text-[#5E718D] leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+          {/* 4-Category Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+            {serviceCategories.map((cat) => {
+              const IconComponent = categoryIconMap[cat.id] || Layers;
+              const bullets = categoryBulletMap[cat.id] || [];
+              return (
+                <div
+                  key={cat.id}
+                  className="p-6 rounded-2xl bg-[#F7FAFD] border border-[#E3ECF5] hover:border-[#1464AD] hover:bg-white shadow-card-subtle hover-lift hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    {/* Category Icon & Pill */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-11 h-11 rounded-xl bg-white group-hover:bg-[#062B60] text-[#1464AD] group-hover:text-white flex items-center justify-center transition-colors duration-200 border border-[#DCEEFF] shadow-xs">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <span className="text-[11px] font-bold text-[#1464AD] bg-white px-2.5 py-1 rounded-md border border-[#DCEEFF]">
+                        {cat.count} Disciplines
+                      </span>
+                    </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E3ECF5]">
+                    {/* Category Title */}
+                    <h3 className="text-lg font-bold text-[#062B60] group-hover:text-[#1464AD] transition-colors mb-2 font-heading">
+                      {cat.name}
+                    </h3>
+
+                    {/* Category Tagline */}
+                    <p className="text-xs text-[#5E718D] leading-relaxed mb-4">
+                      {cat.tagline}
+                    </p>
+
+                    {/* Bullet List of Services in this Category */}
+                    <ul className="space-y-2 mb-6 pt-3 border-t border-[#E3ECF5]">
+                      {bullets.map((b, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2 text-xs text-[#17253A] font-medium">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#1464AD] shrink-0 mt-0.5" />
+                          <span className="leading-snug">{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Deep Jump Link to Services Filter */}
                   <Link
-                    to="/services"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#062B60] hover:text-[#1464AD] transition-colors"
+                    to={cat.id === "international" ? "/international-services" : `/services?cat=${cat.id}`}
+                    className="inline-flex items-center justify-between w-full pt-3.5 border-t border-[#E3ECF5] text-xs font-bold text-[#062B60] group-hover:text-[#1464AD] transition-colors"
                   >
-                    <span>Read Advisory Scope</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <span>View {cat.shortName}</span>
+                    <ArrowUpRight className="w-4 h-4" />
                   </Link>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          {/* Part B: Attached 4-Step Strategic Advisory Process (New Rich Content) */}
+          {/* 4-Step Strategic Advisory Process */}
           <div className="p-6 sm:p-10 lg:p-12 rounded-3xl bg-[#F7FAFD] border border-[#E3ECF5]">
             <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-[#1464AD] block mb-2">
@@ -344,7 +266,7 @@ export default function Home() {
                 How We Deliver Financial Clarity & Governance
               </h3>
               <p className="text-xs sm:text-sm text-[#5E718D] mt-2">
-                A disciplined four-phase methodology ensuring institutional-grade accuracy and continuous commercial value.
+                A disciplined four-phase methodology ensuring institutional-grade accuracy, strict statutory compliance, and continuous commercial value.
               </p>
             </div>
 
@@ -374,7 +296,7 @@ export default function Home() {
                 to="/services"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#062B60] hover:bg-[#1464AD] text-white text-xs sm:text-sm font-bold tracking-wide transition-all shadow-sm"
               >
-                <span>View Full Services & International Solutions</span>
+                <span>View Complete Services Directory</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -383,13 +305,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Global Cross-Border Services */}
-      <GlobalServices />
-
-      {/* 6. Why Choose Auctus Core */}
+      {/* 5. Institutional Advantages: Why Partner With Auctus Core */}
       <WhyChooseUs />
 
-      {/* 7. Contact Section */}
+      {/* 6. Contact & Direct Consultation Booking */}
       <Contact />
     </div>
   );

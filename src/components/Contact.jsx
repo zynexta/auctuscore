@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import {
   Phone,
   Mail,
@@ -12,13 +13,22 @@ import {
 import { companyInfo, coreServices } from "../data/companyData";
 
 export default function Contact() {
+  const [searchParams] = useSearchParams();
+  const preselectedService = searchParams.get("service");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    service: "Audit & Assurance",
+    service: preselectedService || "Accounting & Bookkeeping",
     message: "",
   });
+
+  useEffect(() => {
+    if (preselectedService) {
+      setFormData((prev) => ({ ...prev, service: preselectedService }));
+    }
+  }, [preselectedService]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -60,10 +70,10 @@ export default function Contact() {
             Direct Communication
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#062B60] tracking-tight font-heading">
-            Let’s Build Your Financial Future Together.
+            Get in Touch with Our Advisory Team
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#5E718D]">
-            Connect with Auctus Core and discover how our professional financial solutions can support your business.
+            Reach out directly to discuss your accounting, taxation, statutory compliance, or business advisory needs.
           </p>
         </div>
 

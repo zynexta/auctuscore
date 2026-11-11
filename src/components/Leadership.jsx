@@ -82,16 +82,6 @@ export default function Leadership() {
                         <Award className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
                         <span>{leader.experienceYears}</span>
                       </div>
-
-                      <div className="mt-4 p-3 rounded-xl bg-[#F7FAFD] border-l-4 border-[#1464AD] text-left">
-                        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#062B60] mb-0.5">
-                          <Briefcase className="w-3.5 h-3.5 text-[#1464AD] shrink-0" />
-                          <span>Global Firm Pedigree</span>
-                        </div>
-                        <p className="text-xs font-semibold text-[#17253A] leading-snug">
-                          {leader.pastExperience}
-                        </p>
-                      </div>
                     </div>
                   </div>
 

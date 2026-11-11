@@ -8,10 +8,19 @@ export default function ScrollToTop() {
     if (!hash) {
       window.scrollTo(0, 0);
     } else {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      // Delay slightly to ensure DOM has rendered
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          const navOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 50);
     }
   }, [pathname, hash]);
 
