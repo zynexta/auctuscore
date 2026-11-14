@@ -8,13 +8,13 @@ export const companyInfo = {
   aboutIntro:
     "Auctus Core is a premier financial consulting and advisory firm committed to delivering international-grade financial intelligence, robust regulatory compliance, and strategic clarity. Built upon decades of collective experience in Big Four and top-tier global accounting firms, we partner with enterprises across India, the GCC, and international markets to secure long-term financial health.",
   contact: {
-    email: "auctuscore@gmail.com",
+    email: "info@auctuscore.in",
     phone: "+91 9037010874",
     phoneDisplay: "+91 90370 10874",
     address: "Kozhikode Road, Edavannappara, Malappuram, Kerala, India",
     location: "Kozhikode Road, Edavannappara, Malappuram, Kerala, India",
     whatsappUrl: "https://wa.me/919037010874?text=Hello%20Auctus%20Core%20team%2C%20I%20would%20like%20to%20inquire%20about%20your%20services.",
-    emailUrl: "mailto:auctuscore@gmail.com?subject=Inquiry%20regarding%20Auctus%20Core%20Services",
+    emailUrl: "mailto:info@auctuscore.in?subject=Inquiry%20regarding%20Auctus%20Core%20Services",
     phoneUrl: "tel:+919037010874",
   },
 };

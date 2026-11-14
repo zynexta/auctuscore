@@ -25,7 +25,7 @@ export default function Footer() {
             <Link to="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
                 <img
-                  src="/images/logo.png"
+                  src="/images/logo.webp"
                   alt="Auctus Core Emblem"
                   className="w-full h-full object-contain"
                   width="40"

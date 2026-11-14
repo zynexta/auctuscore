@@ -38,7 +38,7 @@ export default function Hero() {
           type="image/webp"
         />
         <img
-          src="/images/hero-boardroom-2k.jpg?v=2"
+          src="/images/hero-boardroom-2k.webp?v=2"
           alt="Auctus Corporate Boardroom Advisory"
           className="w-full h-full object-cover object-center lg:object-[68%_center] select-none contrast-[1.05] brightness-[1.01]"
           loading="eager"

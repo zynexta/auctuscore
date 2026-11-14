@@ -3,14 +3,17 @@ import fs from "fs";
 import path from "path";
 
 const imagesDir = path.resolve("public/images");
-const images = ["hero.jpg", "about.jpg", "global.jpg", "technology.jpg"];
 
 async function convert() {
-  for (const img of images) {
-    const inputPath = path.join(imagesDir, img);
-    const outputPath = path.join(imagesDir, img.replace(".jpg", ".webp"));
+  if (!fs.existsSync(imagesDir)) return;
+  const files = fs.readdirSync(imagesDir);
 
-    if (fs.existsSync(inputPath)) {
+  for (const file of files) {
+    if (file.endsWith(".jpg") || file.endsWith(".jpeg") || (file.endsWith(".png") && file !== "logo.png")) {
+      const inputPath = path.join(imagesDir, file);
+      const ext = path.extname(file);
+      const outputPath = path.join(imagesDir, file.replace(ext, ".webp"));
+
       const originalStats = fs.statSync(inputPath);
       await sharp(inputPath)
         .webp({ quality: 85, effort: 6 })
@@ -23,10 +26,8 @@ async function convert() {
       ).toFixed(1);
 
       console.log(
-        `✓ Converted ${img} (${(originalStats.size / 1024).toFixed(0)} KB) -> ${path.basename(outputPath)} (${(webpStats.size / 1024).toFixed(0)} KB) [Saved ${savings}%]`
+        `✓ Converted ${file} (${(originalStats.size / 1024).toFixed(0)} KB) -> ${path.basename(outputPath)} (${(webpStats.size / 1024).toFixed(0)} KB) [Saved ${savings}%]`
       );
-    } else {
-      console.warn(`File not found: ${inputPath}`);
     }
   }
 }

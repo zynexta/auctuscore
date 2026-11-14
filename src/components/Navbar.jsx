@@ -92,7 +92,7 @@ export default function Navbar() {
             {/* Official Auctus Core Emblem */}
             <div className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
               <img
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="Auctus Core Emblem"
                 className="w-full h-full object-contain filter drop-shadow-xs"
                 width="40"

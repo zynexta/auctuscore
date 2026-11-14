@@ -57,7 +57,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interested In: ${formData.service}\n\nProject / Inquiry Details:\n${formData.message}`
     );
-    window.location.href = `mailto:auctuscore@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${companyInfo.contact.email}?subject=${subject}&body=${body}`;
   };
 
   return (
