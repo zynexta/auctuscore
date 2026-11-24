@@ -100,8 +100,8 @@ export default function Navbar() {
               />
             </div>
 
-            <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#062B60] leading-none font-heading">
-              AUCTUS
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-[#0672B9] leading-none font-lufga">
+              Auctus Core
             </span>
           </Link>
 

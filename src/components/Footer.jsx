@@ -32,8 +32,8 @@ export default function Footer() {
                   height="40"
                 />
               </div>
-              <span className="text-2xl font-extrabold tracking-tight text-white font-heading">
-                AUCTUS<span className="text-[#539FE0] ml-1">CORE</span>
+              <span className="text-2xl font-bold tracking-tight text-white font-lufga">
+                Auctus <span className="text-[#539FE0]">Core</span>
               </span>
             </Link>
 

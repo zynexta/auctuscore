@@ -31,8 +31,9 @@ export default {
         }
       },
       fontFamily: {
+        lufga: ['Lufga', '"DM Sans"', 'sans-serif'],
         sans: ['"DM Sans"', '"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-        heading: ['Manrope', '"DM Sans"', 'sans-serif'],
+        heading: ['Lufga', 'Manrope', '"DM Sans"', 'sans-serif'],
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         manrope: ['Manrope', 'sans-serif'],
         dmsans: ['"DM Sans"', 'sans-serif'],
