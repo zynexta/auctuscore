@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   Phone,
+  PhoneCall,
   Mail,
   MapPin,
   MessageCircle,
@@ -111,9 +112,26 @@ export default function Contact() {
                     <Phone className="w-4 h-4" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="text-[10px] uppercase font-bold text-[#539FE0] block">Phone Consultation</span>
+                    <span className="text-[10px] uppercase font-bold text-[#539FE0] block">Mobile / Consultation</span>
                     <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#DCEEFF] truncate block">
                       {companyInfo.contact.phoneDisplay}
+                    </span>
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#539FE0] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />
+                </a>
+
+                {/* Landline */}
+                <a
+                  href={companyInfo.contact.landlineUrl}
+                  className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.07] hover:bg-white/[0.14] border border-white/10 transition-colors group"
+                >
+                  <div className="w-9 h-9 rounded-lg bg-[#1464AD] text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <PhoneCall className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[10px] uppercase font-bold text-[#539FE0] block">Office Desk (Landline)</span>
+                    <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#DCEEFF] truncate block">
+                      {companyInfo.contact.landlineDisplay}
                     </span>
                   </div>
                   <ArrowRight className="w-3.5 h-3.5 text-[#539FE0] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />

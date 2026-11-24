@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { ChevronRight, Phone, PhoneCall, Mail, MapPin, MessageCircle } from "lucide-react";
 import Contact from "../components/Contact";
 import { companyInfo } from "../data/companyData";
 
@@ -53,7 +53,7 @@ export default function ContactPage() {
               Connect directly with our partners at Auctus Core for audit, taxation, cross-border accounting, and corporate advisory solutions.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-white/15 text-xs sm:text-sm text-[#DCEEFF]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2 border-t border-white/15 text-xs sm:text-sm text-[#DCEEFF]">
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-[#539FE0] shrink-0" />
                 <span className="truncate">{companyInfo.contact.location}</span>
@@ -61,6 +61,10 @@ export default function ContactPage() {
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#539FE0] shrink-0" />
                 <span>{companyInfo.contact.phoneDisplay}</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <PhoneCall className="w-4 h-4 text-[#539FE0] shrink-0" />
+                <span>{companyInfo.contact.landlineDisplay}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#539FE0] shrink-0" />

@@ -11,6 +11,9 @@ export const companyInfo = {
     email: "info@auctuscore.in",
     phone: "+91 9037010874",
     phoneDisplay: "+91 90370 10874",
+    landline: "0483 272 0083",
+    landlineDisplay: "0483 272 0083",
+    landlineUrl: "tel:04832720083",
     address: "Konnar Tower, Kozhikode Road, Edavannappara, Malappuram, Kerala, India",
     location: "Konnar Tower, Kozhikode Road, Edavannappara, Malappuram, Kerala, India",
     whatsappUrl: "https://wa.me/919037010874?text=Hello%20Auctus%20Core%20team%2C%20I%20would%20like%20to%20inquire%20about%20your%20services.",
@@ -352,7 +355,7 @@ export const leadershipTeam = [
     designation: "FCA",
     role: "Chartered Accountant (FCA)",
     image: "/images/team-shahid-ali.webp",
-    pastExperience: "Former Manager – Audit at EY with Big Four exposure.",
+    pastExperience: "Former Manager – Audit at EY with Big Four exposure. Ex-Deloitte and Grant Thornton.",
     experienceYears: "12+ Years Experience",
     experienceDetail:
       "Manager – Audit at EY with 12+ years of post-qualification experience, including Big Four exposure. Specialises in statutory audit, internal audit and financial consultancy across India and the GCC. Proven leadership in managing audit teams, ensuring US GAAP & IFRS compliance, and delivering high-quality assurance services.",

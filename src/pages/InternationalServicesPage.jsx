@@ -64,9 +64,9 @@ export default function InternationalServicesPage() {
   const deliveryPillars = [
     {
       icon: ShieldCheck,
-      title: "Big Four Leadership Oversight",
+      title: "Big Four & Global Advisory Experience",
       description:
-        "Every offshore engagement is supervised by qualified Chartered Accountants with verified Deloitte, EY, and Grant Thornton management pedigree.",
+        "Our offshore engagements benefit from the oversight of qualified Chartered Accountants with professional experience at Deloitte, EY, and Grant Thornton.",
     },
     {
       icon: Clock,

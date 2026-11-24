@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, ArrowUp, ArrowUpRight } from "lucide-react";
+import { Phone, PhoneCall, Mail, MapPin, ArrowUp, ArrowUpRight } from "lucide-react";
 import { companyInfo, navLinks, coreServices } from "../data/companyData";
 
 export default function Footer() {
@@ -107,6 +107,16 @@ export default function Footer() {
                   className="hover:text-white transition-colors"
                 >
                   {companyInfo.contact.phoneDisplay}
+                </a>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <PhoneCall className="w-4 h-4 text-[#539FE0] shrink-0" />
+                <a
+                  href={companyInfo.contact.landlineUrl}
+                  className="hover:text-white transition-colors"
+                >
+                  {companyInfo.contact.landlineDisplay}
                 </a>
               </div>
 
